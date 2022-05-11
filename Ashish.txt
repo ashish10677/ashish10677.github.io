@@ -4,7 +4,7 @@
 Hey There! I'm a blockchain developer and a tech enthusiast.<!-- laglaglaglaglaglaglaglaglaglaglaglag --><p>I love working with computers, and that doesn't only involve coding.</p>
 <p>I'm currently helping <a href="https://razor.network">razor.network</a> build a decentralized oracle.</p> <!-- bitlagbitlagbitlagbitlagbitlagbitlag -->
 <p>If you want to know more about oracles, check <a href="https://samczsun.com/so-you-want-to-use-a-price-oracle"> this</a> out.</p><!-- delaydelaydelaydelaydelaydelaydelay -->
-<p>Do checkout my <br> <a href="https://github.com/ashish10677">Github</a> <br> Connect with me on <a href="https://www.linkedin.com/in/ashish10677/">LinkedIn</a> and <br> <a href="https://twitter.com/ashish10677">Twitter</a>.</p>
+<p>Do checkout my <a href="https://github.com/ashish10677">Github</a> <br> Connect with me on <a href="https://www.linkedin.com/in/ashish10677/">LinkedIn</a> and <a href="https://twitter.com/ashish10677">Twitter</a>.</p>
 
 Feel free to send me an email at<!-- longlonglongcomment --><a href="mailto: ashish10677@gmail.com" target="_blank"> ashish10677@gmail.com</a>.
 
