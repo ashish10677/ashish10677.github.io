@@ -1,12 +1,19 @@
 <span id="a">ashish@mishra</span>:<span id="b">~</span><span id="c">$</span> cd ashish10677/<!-- laglaglaglaglaglag -->About_Me
 <span id="a">ashish@mishra</span>:<span id="b">~</span><span id="c">$</span> cat <!-- laglaglaglaglaglaglaglaglag -->Ashish.txt<br/><br/>
 
-Hey There! I'm a blockchain developer and a tech enthusiast.<!-- laglaglaglaglaglaglaglaglaglaglaglag --><p>I love working with computers, and that doesn't only involve coding.</p>
-<p>I'm currently helping <a href="https://razor.network">razor.network</a> build a decentralized oracle.</p> <!-- bitlagbitlagbitlagbitlagbitlagbitlag -->
-<p>If you want to know more about oracles, check <a href="https://samczsun.com/so-you-want-to-use-a-price-oracle"> this</a> out.</p><!-- delaydelaydelaydelaydelaydelaydelay -->
-<p>Do checkout my <a href="https://github.com/ashish10677">Github</a> <br> Connect with me on <a href="https://www.linkedin.com/in/ashish10677/">LinkedIn</a> and <a href="https://twitter.com/ashish10677">Twitter</a>.</p>
+Hey there! I'm Ashish, a software engineer who enjoys building reliable backend systems and distributed infrastructure.<!-- laglaglaglaglaglaglaglaglaglaglaglag -->
+<p>I like understanding how systems work under the hood, whether that means designing scalable services, exploring peer-to-peer networks, or experimenting with new technologies.</p>
 
-Feel free to send me an email at<!-- longlonglongcomment --><a href="mailto: ashish10677@gmail.com" target="_blank"> ashish10677@gmail.com</a>.
+<p>I currently work with <a href="https://razor.network">razor.network</a>, where I contribute to building a decentralized oracle network and backend systems that power it.</p> <!-- bitlagbitlagbitlagbitlagbitlagbitlag -->
+
+<p>My work mainly focuses on backend development with Go, distributed systems, and building tools that make complex infrastructure easier to run and maintain.</p><!-- delaydelaydelaydelaydelaydelaydelay -->
+
+<p>I spend a lot of time building side projects and experimenting with ideas on <a href="https://github.com/ashish10677">Github</a>.</p>
+
+<p>If you'd like to connect professionally, you can find me on <a href="https://www.linkedin.com/in/ashish10677/">LinkedIn</a> and <a href="https://twitter.com/ashish10677">Twitter</a>.</p>
+
+Feel free to reach out via email at<!-- longlonglongcomment --><a href="mailto: ashish10677@gmail.com" target="_blank"> ashish10677@gmail.com</a>.
 
 <p>Cheers!</p>
+
 <span id="a">ashish@mishra</span>:<span id="b">~</span><span id="c">$</span>exit<!-- laglaglaglaglaglag -->
