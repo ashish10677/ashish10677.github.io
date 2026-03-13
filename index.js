@@ -1,111 +1,60 @@
-var Typer={
-	text: null,
-	accessCountimer:null,
-	index:0, 
-	speed:2,
-	file:"", 
-	accessCount:0,
-	deniedCount:0, 
-	init: function(){
-		accessCountimer=setInterval(function(){Typer.updLstChr();},500); 
-		$.get(Typer.file,function(data){
-			Typer.text=data;
-			Typer.text = Typer.text.slice(0, Typer.text.length-1);
-		});
-	},
- 
-	content:function(){
-		return $("#console").html();
-	},
- 
-	write:function(str){
-		$("#console").append(str);
-		return false;
-	},
- 
-	addText:function(key){
-		
-		if(key.keyCode==18){
-			Typer.accessCount++; 
-			
-			if(Typer.accessCount>=3){
-				Typer.makeAccess(); 
-			}
+async function loadBlogs() {
+	const blogGrid = document.getElementById("blog-grid");
+	if (!blogGrid) {
+		return;
+	}
+
+	const endpoint =
+		"https://public-api.wordpress.com/rest/v1.1/sites/mishrasword.wordpress.com/posts/?number=3&fields=ID,date,URL,title,excerpt";
+
+	try {
+		const response = await fetch(endpoint);
+		if (!response.ok) {
+			throw new Error("Failed to fetch blog posts");
 		}
-		
-    		else if(key.keyCode==20){
-			Typer.deniedCount++; 
-			
-			if(Typer.deniedCount>=3){
-				Typer.makeDenied(); 
-			}
+
+		const payload = await response.json();
+		const posts = payload.posts || [];
+
+		if (!posts.length) {
+			blogGrid.innerHTML = '<p class="section-copy">No blog posts found.</p>';
+			return;
 		}
-		
-    		else if(key.keyCode==27){ 
-			Typer.hidepop(); 
-		}
-		
-    		else if(Typer.text){ 
-			var cont=Typer.content(); 
-			if(cont.substring(cont.length-1,cont.length)=="|") 
-				$("#console").html($("#console").html().substring(0,cont.length-1)); 
-			if(key.keyCode!=8){ 
-				Typer.index+=Typer.speed;	
-			}
-      		else {
-			if(Typer.index>0) 
-				Typer.index-=Typer.speed;
-			}
-			var text=Typer.text.substring(0,Typer.index)
-			var rtn= new RegExp("\n", "g"); 
-	
-			$("#console").html(text.replace(rtn,"<br/>"));
-			window.scrollBy(0,50); 
-		}
-		
-		if (key.preventDefault && key.keyCode != 122) { 
-			key.preventDefault()
-		};  
-		
-		if(key.keyCode != 122){ // otherway prevent keys default behavior
-			key.returnValue = false;
-		}
-	},
- 
-	updLstChr:function(){ 
-		var cont=this.content(); 
-		
-		if(cont.substring(cont.length-1,cont.length)=="|") 
-			$("#console").html($("#console").html().substring(0,cont.length-1)); 
-		
-		else
-			this.write("|"); // else write it
+
+		blogGrid.innerHTML = posts
+			.map((post) => {
+				const title = post.title || "Untitled";
+				const excerptHtml = post.excerpt || "";
+				const excerptText = excerptHtml.replace(/<[^>]*>/g, "").trim();
+				const shortExcerpt =
+					excerptText.length > 180
+						? excerptText.slice(0, 180) + "..."
+						: excerptText;
+
+				const date = new Date(post.date).toLocaleDateString("en-US", {
+					year: "numeric",
+					month: "short",
+					day: "numeric",
+				});
+
+				return `
+         			<article class="panel card blog-card">
+         			  <div>
+         			    <div class="blog-meta">From the blog</div>
+         			    <h3>${title}</h3>
+         			    <p class="blog-desc">${shortExcerpt}</p>
+         			  </div>
+         			  <div class="blog-actions">
+         			    <span class="blog-date">${date}</span>
+         			    <a class="blog-link" href="${post.URL}" target="_blank" rel="noreferrer">Read More</a>
+         			  </div>
+         			</article>
+        		`;
+			}).join("");
+	} catch (error) {
+		blogGrid.innerHTML = '<p class="section-copy">Unable to load blog posts right now. Please visit the full blog.</p>';
+		console.error(error);
 	}
 }
 
-function replaceUrls(text) {
-	var http = text.indexOf("http://");
-	var space = text.indexOf(".me ", http);
-	
-	if (space != -1) { 
-		var url = text.slice(http, space-1);
-		return text.replace(url, "<a href=\""  + url + "\">" + url + "</a>");
-	} 
-	
-	else {
-		return text
-	}
-}
-
-Typer.speed=3;
-Typer.file="Ashish.txt"; // add your own name here
-Typer.init();
- 
-var timer = setInterval("t();", 30);
-function t() {
-	Typer.addText({"keyCode": 123748});
-	
-	if (Typer.index > Typer.text.length) {
-		clearInterval(timer);
-	}
-}
+loadBlogs();
