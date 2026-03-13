@@ -47,10 +47,11 @@ jobs:
             ./ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/"
 
       - name: Reload web server
-        if: ${{ secrets.DEPLOY_RELOAD_CMD != '' }}
         env:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
           DEPLOY_RELOAD_CMD: ${{ secrets.DEPLOY_RELOAD_CMD }}
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
         run: |
-          ssh "$DEPLOY_USER@$DEPLOY_HOST" "$DEPLOY_RELOAD_CMD"
+          if [ -n "$DEPLOY_RELOAD_CMD" ]; then
+            ssh "$DEPLOY_USER@$DEPLOY_HOST" "$DEPLOY_RELOAD_CMD"
+          fi
