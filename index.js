@@ -1,3 +1,44 @@
+function setupMobileNav() {
+	const navToggle = document.querySelector(".nav-toggle");
+	const navLinks = document.getElementById("site-nav");
+
+	if (!navToggle || !navLinks) {
+		return;
+	}
+
+	const closeMenu = () => {
+		navToggle.setAttribute("aria-expanded", "false");
+		navToggle.setAttribute("aria-label", "Open navigation menu");
+		navLinks.classList.remove("is-open");
+	};
+
+	const openMenu = () => {
+		navToggle.setAttribute("aria-expanded", "true");
+		navToggle.setAttribute("aria-label", "Close navigation menu");
+		navLinks.classList.add("is-open");
+	};
+
+	navToggle.addEventListener("click", () => {
+		const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+		if (isOpen) {
+			closeMenu();
+			return;
+		}
+
+		openMenu();
+	});
+
+	navLinks.querySelectorAll("a").forEach((link) => {
+		link.addEventListener("click", closeMenu);
+	});
+
+	window.addEventListener("resize", () => {
+		if (window.innerWidth > 980) {
+			closeMenu();
+		}
+	});
+}
+
 async function loadBlogs() {
 	const blogGrid = document.getElementById("blog-grid");
 	if (!blogGrid) {
@@ -57,4 +98,5 @@ async function loadBlogs() {
 	}
 }
 
+setupMobileNav();
 loadBlogs();
