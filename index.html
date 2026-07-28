@@ -43,6 +43,7 @@
       <ul class="nav-links" id="site-nav">
         <li><a href="#">About</a></li>
         <li><a href="#resume">Resume</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#blogs">Blogs</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -179,6 +180,75 @@
 
       </div>
     </section>
+
+    <section class="experience-section" id="experience">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Experience</div>
+          <h2 class="section-title">Where I work today</h2>
+        </div>
+
+        <div class="panel experience-panel">
+          <div class="experience-head">
+            <h3 class="experience-role">
+              Senior Software Engineer ·
+              <span class="experience-company">Careem</span>
+            </h3>
+            <span class="experience-meta">Apr 2026 – Present · Rides Platform</span>
+          </div>
+
+          <p class="experience-copy">
+            Backend engineer on Careem's Rides platform (ride-hailing across the MENA
+            region), working across three Go services: the ride-fulfillment core that
+            owns order lifecycle, payments, and provider webhooks; a server-driven UI
+            service that renders the app's live ride-tracking and activity-history
+            screens; and internal API-routing infrastructure. I ship multi-week features
+            as small, independently reviewable stacked PRs, root-cause production issues
+            in payments-adjacent systems, and keep feature-flag lifecycles clean —
+            adding toggles and safely retiring them once rollouts prove stable.
+          </p>
+
+          <div class="experience-highlights">
+            <div class="xp">
+              <h4>Multi-stop ride live tracking</h4>
+              <p>
+                Owned a multi-sprint server-driven UI feature end to end — data
+                ingestion, map markers, a trip-progress "stages" model, ETA-to-next-stop
+                logic, and the post-trip history view — landed as ~8 stacked PRs with
+                the single-stop path kept regression-free.
+              </p>
+            </div>
+            <div class="xp">
+              <h4>Payment-nudge UI</h4>
+              <p>
+                Built mid-trip cash-to-card banners on the ride-status and payment
+                surfaces, tightly gated on ride state and payment method, reusing an
+                existing feature flag and deeplink helper instead of proliferating new
+                ones.
+              </p>
+            </div>
+            <div class="xp">
+              <h4>Reliability &amp; correctness fixes</h4>
+              <p>
+                Root-caused a live ride-creation failure to a character-encoding bug in
+                a deprecated upstream API, fixed webhook idempotency for unknown-ride
+                events, and corrected payment-consent handling for hybrid
+                cash-plus-wallet rides.
+              </p>
+            </div>
+            <div class="xp">
+              <h4>Internal API routing migration</h4>
+              <p>
+                Moved service-to-service settlement traffic off the public
+                authenticated path onto private internal routes, gated per-request by a
+                feature flag for a zero-downtime, instantly revertible cutover.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <br /><br /><br />
     <section id="projects">
       <div class="container">
@@ -192,6 +262,43 @@
         </div>
 
         <div class="project-grid">
+          <article class="panel card project-card blue">
+            <div>
+              <div class="project-topline">Careem · Rides</div>
+              <h3>Multi-stop Live Tracking</h3>
+              <p class="project-desc">
+                End-to-end server-driven UI feature for rides with intermediate stops —
+                map markers, a trip-progress stages model, ETA-to-next-stop logic, and
+                the post-trip history view — shipped as small stacked PRs.
+              </p>
+            </div>
+            <div class="tags">
+              <span class="tag">Go</span>
+              <span class="tag">Server-Driven UI</span>
+              <span class="tag">Microservices</span>
+            </div>
+          </article>
+
+          <article class="panel card project-card cyan">
+            <div>
+              <div class="project-topline">Recent Project</div>
+              <h3>Kafka Orders Pipeline</h3>
+              <p class="project-desc">
+                Event-driven order pipeline in Go over Apache Kafka with Avro and a
+                Confluent Schema Registry — a schema-from-code design where the Go
+                struct is the authority, auto-registered and serialized in Confluent
+                wire format.
+              </p>
+            </div>
+            <div class="tags">
+              <span class="tag">Go</span>
+              <span class="tag">Kafka</span>
+              <span class="tag">Avro</span>
+            </div>
+            <a class="project-link" href="https://github.com/ashish10677/kafka-orders" target="_blank"
+              rel="noreferrer">View Project</a>
+          </article>
+
           <article class="panel card project-card blue">
             <div>
               <div class="project-topline">Featured Project</div>
